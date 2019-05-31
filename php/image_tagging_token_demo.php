@@ -6,7 +6,7 @@ require "./image_sdk/gettoken.php";
 require "./image_sdk/image_tagging.php";
 require "./image_sdk/utils.php";
 
-// region目前支持华北-北京一(cn-north-1)、亚太-香港(ap-southeast-1)
+// region目前支持华北-北京一(cn-north-1)、华北-北京四(cn-north-4)、亚太-香港(ap-southeast-1)
 init_region($region = 'cn-north-1');
 
 $username = "********";      // 配置用户名

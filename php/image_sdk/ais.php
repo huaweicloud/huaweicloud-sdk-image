@@ -8,7 +8,7 @@
  */
 
 // token请求域名
-define("IAM_ENPOINT", "iam.cn-north-1.myhuaweicloud.com");
+define("IAM_ENPOINT", "iam.myhuaweicloud.com");
 
 // token请求uri
 define("AIS_TOKEN", "/v3/auth/tokens");
