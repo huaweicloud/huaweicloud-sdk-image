@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class AisEndpoint:
-    IAM_ENPOINT = 'iam.cn-north-1.myhuaweicloud.com'
+    IAM_ENPOINT = 'iam.myhuaweicloud.com'
 
 
 class ImageURI:
