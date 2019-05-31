@@ -4,6 +4,7 @@ $regionName = "cn-north-1";
 $_endponit = array(
     "image" => array(
        "cn-north-1" => "image.cn-north-1.myhuaweicloud.com",
+        "cn-north-4" => "image.cn-north-4.myhuaweicloud.com",
         "ap-southeast-1" => "image.ap-southeast-1.myhuaweicloud.com"
     )
 );
