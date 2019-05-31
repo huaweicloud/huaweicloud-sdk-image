@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
  * 使用Token认证方式访问服务
  */
 public class DeblurTokenDemo {
-	private static final String projectName = "cn-north-1"; // 此处，请输入服务的区域信息，目前支持华北-北京一(cn-north-1)以及亚太-香港(ap-southeast-1)
+	private static final String projectName = "cn-north-1"; // 此处，请输入服务的区域信息，目前支持华北-北京(cn-north-1,cn-north-4)以及亚太-香港(ap-southeast-1)
 	public static int connectionTimeout = 5000; //连接目标url超时限制参数
 	public static int connectionRequestTimeout = 1000;//连接池获取可用连接超时限制参数
 	public static int socketTimeout =  5000;//获取服务器响应数据超时限制参数
@@ -86,7 +86,7 @@ public class DeblurTokenDemo {
 	private static String getToken(String username, String password, String projectName)
 			throws URISyntaxException, UnsupportedOperationException, IOException {
 		String requestBody = requestBody(username, password, username, projectName);
-		String url ="https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens"; 
+		String url ="https://iam.myhuaweicloud.com/v3/auth/tokens";
 
 		Header[] headers = new Header[] { new BasicHeader("Content-Type", ContentType.APPLICATION_JSON.toString()) };
 		StringEntity stringEntity = new StringEntity(requestBody,

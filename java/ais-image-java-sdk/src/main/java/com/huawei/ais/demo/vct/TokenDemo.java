@@ -20,7 +20,7 @@ public class TokenDemo {
 
     private static final String REGION = "cn-north-1";
     private static final String AIS_ENDPOINT = ServiceAccessBuilder.getCurrentEndpoint(REGION);
-    private static final String IAM_ENDPOINT = "https://iam." + REGION + ".myhuaweicloud.com";
+    private static final String IAM_ENDPOINT = "https://iam.myhuaweicloud.com";
 
     private static final String TOKEN_URL = IAM_ENDPOINT + "/v3/auth/tokens";
     private static final String SUBMIT_JOB_URL = AIS_ENDPOINT + "/v1.0/video/tagging";
