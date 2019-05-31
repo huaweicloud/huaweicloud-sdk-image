@@ -24,6 +24,7 @@ public class ServiceAccessBuilder {
 		 *  http://developer.huaweicloud.com/dev/endpoint
 		 * */
 		endponitMap.put("cn-north-1", "https://image.cn-north-1.myhuaweicloud.com");
+		endponitMap.put("cn-north-4", "https://image.cn-north-4.myhuaweicloud.com");
 		endponitMap.put("ap-southeast-1", "https://image.ap-southeast-1.myhuaweicloud.com");
 	}
 
