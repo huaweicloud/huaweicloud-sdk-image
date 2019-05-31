@@ -7,11 +7,8 @@ var signer = require("./signer");
 global.ENDPOINT = {
     'image': {
         'cn-north-1': 'image.cn-north-1.myhuaweicloud.com',
+        'cn-north-4': 'image.cn-north-4.myhuaweicloud.com',
         'ap-southeast-1': 'image.ap-southeast-1.myhuaweicloud.com'
-    },
-    'moderation': {
-        'cn-north-1': 'moderation.cn-north-1.myhuaweicloud.com',
-        'ap-southeast-1': 'moderation.ap-southeast-1.myhuaweicloud.com'
     }
 };
 

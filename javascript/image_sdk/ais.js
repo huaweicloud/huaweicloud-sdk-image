@@ -5,7 +5,7 @@
 var ais = {
 
     // token请求域名
-    IAM_ENPOINT: 'iam.cn-north-1.myhuaweicloud.com',
+    IAM_ENPOINT: 'iam.myhuaweicloud.com',
 
     // token请求uri
     AIS_TOKEN: '/v3/auth/tokens',
