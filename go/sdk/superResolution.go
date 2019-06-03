@@ -1,7 +1,7 @@
 package sdk
 
 import (
-	"ais_sdk/src/core"
+	"image_sdk/src/core"
 	"bytes"
 	"crypto/tls"
 	"encoding/json"

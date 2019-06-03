@@ -14,6 +14,7 @@ var region = "cn-north-1"
 func init(){
 	var imageMap = make(map[string]string)
 	imageMap["cn-north-1"] = "image.cn-north-1.myhuaweicloud.com"
+	imageMap["cn-north-4"] = "image.cn-north-4.myhuaweicloud.com"
 	imageMap["ap-southeast-1"] = "image.ap-southeast-1.myhuaweicloud.com"
 	ENDPOINTS["image"] = imageMap
 }
