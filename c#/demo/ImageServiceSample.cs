@@ -9,7 +9,7 @@ namespace ImageDemo
     {
         static void Main(string[] args)
         {
-            // Services currently support North China-Beijing 1 (cn-north-1), Asia Pacific-Hong Kong (ap-southeast-1)
+            // Services currently support North China-Beijing (cn-north-1,cn-north-4), Asia Pacific-Hong Kong (ap-southeast-1)
             String regionName = "*******";
             String username = "*******";
             String password = "*******";
@@ -19,7 +19,7 @@ namespace ImageDemo
             String IMAGE_ENDPOINT = ImageService.getEndponit(regionName);
 
             // get token domain name 
-            String IAM_ENPOINT = "iam.cn-north-1.myhuaweicloud.com";
+            String IAM_ENPOINT = "iam.myhuaweicloud.com";
 
             String token = Authentication.GetToken(username, domainName, password, regionName, IAM_ENPOINT);
 
