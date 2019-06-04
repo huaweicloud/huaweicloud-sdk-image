@@ -1,13 +1,16 @@
 package main
 
 import (
-	"ais_sdk/src/sdk"
+	"image_sdk/src/sdk"
 	"encoding/json"
 	"fmt"
 )
 
 func main() {
-	// Services currently support North China-Beijing 1 (cn-north-1), Asia Pacific-Hong Kong (ap-southeast-1)
+	/*
+	 * Services currently support North China-Beijing 1 (cn-north-1),
+	 * North China-Beijing 4 (cn-north-4), Asia Pacific-Hong Kong (ap-southeast-1)
+	 */
 	sdk.InitRegion("cn-north-1")
 	
 	ak := "*******" // your AppKey
