@@ -17,6 +17,7 @@ namespace Image.Models
         static ImageService()
         {
             endPointsDic.Add("cn-north-1", "image.cn-north-1.myhuaweicloud.com");
+            endPointsDic.Add("cn-north-4", "image.cn-north-4.myhuaweicloud.com");
             endPointsDic.Add("ap-southeast-1", "image.ap-southeast-1.myhuaweicloud.com");
         }
 
