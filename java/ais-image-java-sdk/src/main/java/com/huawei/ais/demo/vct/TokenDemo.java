@@ -57,7 +57,7 @@ public class TokenDemo {
         // 设置必选参数
         jobMetaInfo.setUrl(videoUrl);
         // 设置可选参数
-        jobMetaInfo.setFrameInterval(5);
+        jobMetaInfo.setFrameInterval(1);
         jobMetaInfo.setThreshold(0);
         jobMetaInfo.setLanguage(Language.CHINESE);
 
