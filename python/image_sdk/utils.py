@@ -38,8 +38,7 @@ if sys.version_info.major < 3:
             resp = e.read()
             status_code = e.code
         except urllib2.URLError as e:
-            resp = e.read()
-            status_code = e.code
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
@@ -71,8 +70,7 @@ if sys.version_info.major < 3:
             resp = e.read()
             status_code = e.code
         except urllib2.URLError as e:
-            resp = e.read()
-            status_code = e.code
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
@@ -101,7 +99,7 @@ if sys.version_info.major < 3:
             resp = e.read()
             status_code = e.code
         except urllib2.URLError as e:
-            resp = e.read()
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
@@ -132,7 +130,7 @@ if sys.version_info.major < 3:
             resp = e.read()
             status_code = e.code
         except urllib2.URLError as e:
-            resp = e.read()
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
@@ -174,8 +172,7 @@ else:
             resp = e.read()
             status_code = e.code
         except URLError as e:
-            resp = e.read()
-            status_code = e.code
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
@@ -208,8 +205,7 @@ else:
             resp = e.read()
             status_code = e.code
         except URLError as e:
-            resp = e.read()
-            status_code = e.code
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
@@ -238,8 +234,7 @@ else:
             resp = e.read()
             status_code = e.code
         except URLError as e:
-            resp = e.read()
-            status_code = e.code
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
@@ -269,8 +264,7 @@ else:
             resp = e.read()
             status_code = e.code
         except URLError as e:
-            resp = e.read()
-            status_code = e.code
+            resp = e.reason
         else:
             status_code = r.code
             resp = r.read()
