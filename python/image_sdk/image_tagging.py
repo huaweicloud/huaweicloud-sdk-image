@@ -14,7 +14,7 @@ def image_tagging(token, image, url, languzge, limit=-1, threshold=0.0):
     _url = 'https://%s%s' % (endpoint, ais.ImageURI.IMAGE_TAGGING)
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {
@@ -44,7 +44,7 @@ def image_tagging_aksk(_ak, _sk, image, url, languzge, limit=-1, threshold=0.0):
     sig.AppSecret = _sk
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {

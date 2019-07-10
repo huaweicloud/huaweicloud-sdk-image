@@ -14,7 +14,7 @@ def image_defog(token, image, gamama=1.5):
     _url = 'https://%s%s' % (endpoint, ais.ImageURI.IMAGE_DEFOG)
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {
@@ -41,7 +41,7 @@ def image_defog_aksk(_ak, _sk, image, gamama=1.5):
     sig.AppSecret = _sk
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {

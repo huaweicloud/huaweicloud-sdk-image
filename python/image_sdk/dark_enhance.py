@@ -14,7 +14,7 @@ def dark_enhance(token, image, brightness=0.9):
     _url = 'https://%s%s' % (endpoint, ais.ImageURI.DARK_ENHANCE)
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {
@@ -39,7 +39,7 @@ def dark_enhance_aksk(_ak, _sk, image, brightness=0.9):
     sig.AppSecret = _sk
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {
