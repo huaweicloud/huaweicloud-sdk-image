@@ -14,7 +14,7 @@ def super_resolution(token, image, scale=3, model="ESPCN"):
     _url = 'https://%s%s' % (endpoint, ais.ImageURI.SUPER_RESOLUTION)
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {
@@ -41,7 +41,7 @@ def super_resolution_aksk(_ak, _sk, image, scale=3, model="ESPCN"):
     sig.AppSecret = _sk
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {

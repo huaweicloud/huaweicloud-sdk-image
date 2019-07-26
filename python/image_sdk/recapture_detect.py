@@ -14,7 +14,7 @@ def recapture_detect(token, image, url, threshold=0.95, scene=None):
     _url = 'https://%s%s' % (endpoint, ais.ImageURI.RECAPTURE_DETECT)
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {
@@ -43,7 +43,7 @@ def recapture_detect_aksk(_ak, _sk, image, url, threshold=0.95, scene=None):
     sig.AppSecret = _sk
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {

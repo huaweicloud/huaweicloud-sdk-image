@@ -20,7 +20,7 @@ if __name__ == '__main__':
     token = get_token(user_name, password, account_name)
 
     # call interface use the url
-    result = image_tagging(token, "", demo_data_url, 'zh', 5, 30)
+    result = image_tagging(token, '', demo_data_url, 'zh', 5, 30)
     print(result)
 
     # call interface use the file

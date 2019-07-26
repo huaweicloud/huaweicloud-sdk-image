@@ -4,11 +4,12 @@ from image_sdk.asr_bgm import asr_bgm
 from image_sdk.utils import init_global_env
 
 import os
-# setup http proxy environment
-os.environ['http_proxy'] = 'http://username:password@proxyExample.huawei.com:8080/'
-os.environ['https_proxy'] = 'http://username:password@proxyExample.huawei.com:8080/'
 
 if __name__ == '__main__':
+    # setup http proxy environment
+    os.environ['http_proxy'] = 'http://username:password@proxyExample.huawei.com:8080'
+    os.environ['https_proxy'] = 'http://username:password@proxyExample.huawei.com:8080'
+
     # Services currently support North China-Beijing(cn-north-1,cn-north-4), Asia Pacific-Hong Kong(ap-southeast-1)
     init_global_env('cn-north-1')
 

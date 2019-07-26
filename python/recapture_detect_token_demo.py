@@ -20,9 +20,9 @@ if __name__ == '__main__':
     token = get_token(user_name, password, account_name)
 
     # call interface use the file
-    result = recapture_detect(token, encode_to_base64('data/recapture-detect-demo.jpg'), "", 0.75, ["recapture"])
+    result = recapture_detect(token, encode_to_base64('data/recapture-detect-demo.jpg'), '', 0.75, ["recapture"])
     print(result)
 
     # call interface use the url
-    result = recapture_detect(token, "", demo_data_url, 0.75, ["recapture"])
+    result = recapture_detect(token, '', demo_data_url, 0.75, ["recapture"])
     print(result)

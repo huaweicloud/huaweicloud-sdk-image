@@ -17,7 +17,7 @@ if __name__ == '__main__':
     demo_data_url = 'https://ais-sample-data.obs.cn-north-1.myhuaweicloud.com/celebrity-recognition.jpg'
 
     # call interface use the url
-    result = celebrity_recognition_aksk(app_key, app_secret, "", demo_data_url, 0.48)
+    result = celebrity_recognition_aksk(app_key, app_secret, '', demo_data_url, 0.48)
     print(result)
 
     # call interface use the file

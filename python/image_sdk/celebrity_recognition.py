@@ -15,7 +15,7 @@ def celebrity_recognition(token, image, url, threshold=4.8):
     _url = 'https://%s%s' % (endpoint, ais.ImageURI.CELEBRITY_RECOGNITION)
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {
@@ -43,7 +43,7 @@ def celebrity_recognition_aksk(_ak, _sk, image, url, threshold=4.8):
     sig.AppSecret = _sk
 
     if sys.version_info.major >= 3:
-        if image != '':
+        if image:
             image = image.decode("utf-8")
 
     _data = {

@@ -20,7 +20,7 @@ if __name__ == '__main__':
     token = get_token(user_name, password, account_name)
 
     # call interface use the url
-    result = celebrity_recognition(token, "", demo_data_url, 0.48)
+    result = celebrity_recognition(token, '', demo_data_url, 0.48)
     print(result)
 
     # call interface use the file
