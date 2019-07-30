@@ -38,10 +38,14 @@ import com.cloud.sdk.auth.signer.Signer;
 import com.cloud.sdk.auth.signer.SignerFactory;
 import com.cloud.sdk.http.HttpMethodName;
 import com.huawei.ais.sdk.util.HttpClientUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AccessServiceImpl extends AccessService {
 
 	private CloseableHttpClient client = null;
+
+	private static final Logger logger = LoggerFactory.getLogger(AccessServiceImpl.class);
 
 	public AccessServiceImpl(String serviceName, String region, String ak, String sk) {
 		super(serviceName, region, ak, sk);
@@ -96,7 +100,7 @@ public class AccessServiceImpl extends AccessService {
 
 		} catch (URISyntaxException e) {
 			// It is recommended to add logs in this place.
-			e.printStackTrace();
+			logger.error("Handling request information failed, cause by:", e);
 		}
 		// Set the request method.
 		request.setHttpMethod(httpMethod);
@@ -196,7 +200,7 @@ public class AccessServiceImpl extends AccessService {
 			}
 		} catch (IOException e) {
 			// It is recommended to add logs in this place.
-			e.printStackTrace();
+			logger.error("Closeablehttpclient close failed, cause by:", e);
 		}
 	}
 
@@ -231,7 +235,7 @@ public class AccessServiceImpl extends AccessService {
 
 		} catch (URISyntaxException e) {
 			// It is recommended to add logs in this place.
-			e.printStackTrace();
+			logger.error("Handling request information failed, cause by:", e);
 		}
 		// Set the request method.
 		request.setHttpMethod(httpMethod);
