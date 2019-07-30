@@ -22,12 +22,13 @@ public class AisAccessWithProxy extends AisAccess{
 		proxyHostInfo = hostInfo;
 	}
 	
-	public AisAccessWithProxy(AuthInfo authInfo, ProxyHostInfo hostInfo, int connectionTimeout, int connectionRequestTimeout, int socketTimeout ) {
+	public AisAccessWithProxy(AuthInfo authInfo, ProxyHostInfo hostInfo, int connectionTimeout, int connectionRequestTimeout, int socketTimeout, int retryTimes ) {
 		super(authInfo);
 		proxyHostInfo = hostInfo;
 		this.connectionTimeout = connectionTimeout;
 		this.connectionRequestTimeout = connectionRequestTimeout;
 		this.socketTimeout = socketTimeout;
+		this.retryTimes = retryTimes;
 		
 	}
 	
