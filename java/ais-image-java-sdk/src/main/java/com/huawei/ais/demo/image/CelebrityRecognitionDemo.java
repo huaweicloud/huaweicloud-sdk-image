@@ -31,6 +31,7 @@ public class CelebrityRecognitionDemo {
 				.connectionTimeout(5000)            // 连接目标url超时限制
 				.connectionRequestTimeout(1000)     // 连接池获取可用连接超时限制
 				.socketTimeout(20000)               // 获取服务器响应数据超时限制
+				.retryTimes(3)                      // 请求异常时的重试次数
 				.build();
 
 		try {
