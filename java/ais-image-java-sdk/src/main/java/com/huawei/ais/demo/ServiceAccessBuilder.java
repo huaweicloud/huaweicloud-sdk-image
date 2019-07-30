@@ -44,15 +44,17 @@ public class ServiceAccessBuilder {
 
 	private int socketTimeout = 5000;
 
+	private int retryTimes = 3;
+
 	public static ServiceAccessBuilder builder() {
 		return new ServiceAccessBuilder();
 	}
 
 	public AisAccess build() {
 		if (proxy == null) {
-			return new AisAccess(new AuthInfo(endpoint, region, ak, sk), connectionTimeout,connectionRequestTimeout,socketTimeout);
+			return new AisAccess(new AuthInfo(endpoint, region, ak, sk), connectionTimeout, connectionRequestTimeout, socketTimeout, retryTimes);
 		} else {
-			return new AisAccessWithProxy(new AuthInfo(endpoint, region, ak, sk), proxy, connectionTimeout,connectionRequestTimeout, socketTimeout);
+			return new AisAccessWithProxy(new AuthInfo(endpoint, region, ak, sk), proxy, connectionTimeout, connectionRequestTimeout, socketTimeout, retryTimes);
 		}
 	}
 
@@ -89,6 +91,11 @@ public class ServiceAccessBuilder {
 
 	public ServiceAccessBuilder socketTimeout(int socketTimeout) {
 		this.socketTimeout = socketTimeout;
+		return this;
+	}
+
+	public ServiceAccessBuilder retryTimes(int retryTimes) {
+		this.retryTimes = retryTimes;
 		return this;
 	}
 
