@@ -101,9 +101,15 @@
 		<dependency>
 			<groupId>com.huawei.storage</groupId>
 			<artifactId>esdk-obs-java</artifactId>
-			<version>2.1.22</version>
+			<version>3.19.5</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/esdk-obs-java-2.1.22.jar</systemPath>
+			<systemPath>${project.basedir}/lib/esdk-obs-java-3.19.5.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.10.0</version>
 		</dependency>
 
 		<dependency>
