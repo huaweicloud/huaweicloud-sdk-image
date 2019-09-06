@@ -22,7 +22,7 @@ public class ASRBgmDemo {
         AisAccess service = ServiceAccessBuilder.builder()
                 .ak("######")                       // your ak
                 .sk("######")                       // your sk
-                .region("cn-north-1")               // 图像识别服务目前支持华北-北京一(cn-north-1)以及亚太-香港(ap-southeast-1)
+                .region("cn-north-4")               // 图像识别服务目前支持华北-北京(cn-north-4)以及亚太-香港(ap-southeast-1)
                 .connectionTimeout(5000)            // 连接目标url超时限制
                 .connectionRequestTimeout(1000)     // 连接池获取可用连接超时限制
                 .socketTimeout(20000)               // 获取服务器响应数据超时限制
@@ -39,7 +39,7 @@ public class ASRBgmDemo {
             JSONObject json = new JSONObject();
 
             // 视频的OBS URL （注：obs链接需要和region区域一致，不同的region的obs资源不共享）
-            String url = "https://obs-test-llg.obs.cn-north-1.myhuaweicloud.com/bgm_recognition";
+            String url = "https://obs-image-bj4.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
             json.put("url", url);
 
             // 3.传入视频背景音乐识别服务对应的uri参数, 传入视频背景音乐识别服务需要的参数，
