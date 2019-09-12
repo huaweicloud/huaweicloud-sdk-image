@@ -4,8 +4,8 @@
 var recognition = require("./image_sdk/celebrity_recognition");
 var utils = require("./image_sdk/utils");
 
-// 初始化服务的区域信息，目前支持华北-北京(cn-north-1、cn-north-4)、亚太-香港(ap-southeast-1)等区域信息
-utils.initRegion("cn-north-1");
+// 初始化服务的区域信息，目前支持华北-北京(cn-north-4)、亚太-香港(ap-southeast-1)等区域信息
+utils.initRegion("cn-north-4");
 
 var app_key = "*************";
 var app_secret = "************";

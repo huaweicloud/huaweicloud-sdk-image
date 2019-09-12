@@ -5,8 +5,8 @@ var tagging = require("./image_sdk/image_tagging");
 var token = require("./image_sdk/gettoken");
 var utils = require("./image_sdk/utils");
 
-// 初始化服务的区域信息，目前支持华北-北京(cn-north-1、cn-north-4)、亚太-香港(ap-southeast-1)等区域信息
-utils.initRegion("cn-north-1");
+// 初始化服务的区域信息，目前支持华北-北京(cn-north-4)、亚太-香港(ap-southeast-1)等区域信息
+utils.initRegion("cn-north-4");
 
 var username = "*******";        // 配置用户名
 var domain_name = "*******";     // 配置用户名
