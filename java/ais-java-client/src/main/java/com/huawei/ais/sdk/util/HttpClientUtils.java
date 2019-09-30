@@ -47,6 +47,7 @@ public class HttpClientUtils {
 	public static int DEFAULT_CONNECTION_REQUEST_TIMEOUT = 1000;
 	public static int DEFAULT_SOCKET_TIMEOUT = 5000;
 	public static int DEFAULT_RETRY_TIMES = 3;
+	public static int SERVER_TIRED_CODE = 429;
 	
 	public static CloseableHttpClient acceptsUntrustedCertsHttpClient(boolean withProxy, ProxyHostInfo hostInfo, int connectionTimeout, int connectionRequestTimeout, int socketTimeout)
 			throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
@@ -177,5 +178,9 @@ public class HttpClientUtils {
 		}
 
 		return sb.toString();
+	}
+
+	public static boolean needRetry(int status){
+		return status >= 500 || status == SERVER_TIRED_CODE;
 	}
 }
