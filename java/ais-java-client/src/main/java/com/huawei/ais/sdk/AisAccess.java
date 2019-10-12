@@ -86,7 +86,12 @@ public class AisAccess extends AccessServiceImpl{
 
 				InputStream content = new ByteArrayInputStream(putBody.getBytes());
 				response = access(url, content, (long) putBody.getBytes().length, httpMethod);
-				break;
+				int statusCode = response.getStatusLine().getStatusCode();
+				if(!HttpClientUtils.needRetry(statusCode)){
+					break;
+				}else if (statusCode == HttpClientUtils.SERVER_TIRED_CODE){
+					Thread.sleep(500);
+				}
 			} catch (Exception e) {
 				if (retries < 1){
 					logger.error("Failure to process request, request body {}, cause by:", putBody, e);
@@ -117,7 +122,12 @@ public class AisAccess extends AccessServiceImpl{
 				URL url = new URL(generateWholeUrl(authInfo.getEndPoint(), requestUrl));
 				HttpMethodName httpMethod = HttpMethodName.GET;
 				response = access(url, httpMethod);
-				break;
+				int statusCode = response.getStatusLine().getStatusCode();
+				if(!HttpClientUtils.needRetry(statusCode)){
+					break;
+				}else if (statusCode == HttpClientUtils.SERVER_TIRED_CODE){
+					Thread.sleep(500);
+				}
 			} catch (Exception e) {
 				if (retries < 1){
 					logger.error("Failure to process request, url {}, cause by:", requestUrl, e);
@@ -157,7 +167,12 @@ public class AisAccess extends AccessServiceImpl{
 				}
 
 				response = access(url, header, content, (long) postbody.getBytes().length, httpMethod);
-				break;
+				int statusCode = response.getStatusLine().getStatusCode();
+				if(!HttpClientUtils.needRetry(statusCode)){
+					break;
+				}else if (statusCode == HttpClientUtils.SERVER_TIRED_CODE){
+					Thread.sleep(500);
+				}
 			} catch (Exception e) {
 				if (retries < 1){
 					logger.error("Failure to process request, request body {}, cause by:", postbody, e);
@@ -202,7 +217,12 @@ public class AisAccess extends AccessServiceImpl{
 					break;
 				}
 				response = accessEntity(url, header, entity, (long) entity.getContentLength(), httpMethod);
-				break;
+				int statusCode = response.getStatusLine().getStatusCode();
+				if(!HttpClientUtils.needRetry(statusCode)){
+					break;
+				}else if (statusCode == HttpClientUtils.SERVER_TIRED_CODE){
+					Thread.sleep(500);
+				}
 			} catch (Exception e) {
 				if (retries < 1){
 					logger.error("Failure to process request, request body {}, cause by:", requestBody, e);
