@@ -42,6 +42,8 @@ public class RecaptureDetectionDemo {
 			
 			JSONObject json = new JSONObject();
 			json.put("image", fileBase64Str);
+			json.put("threshold", 0.95);
+			json.put("scene", new String[]{"recapture"});
 			StringEntity stringEntity = new StringEntity(json.toJSONString(), "utf-8");
 
 			// 3.传入翻拍识别服务对应的uri参数, 传入翻拍识别服务需要的参数，

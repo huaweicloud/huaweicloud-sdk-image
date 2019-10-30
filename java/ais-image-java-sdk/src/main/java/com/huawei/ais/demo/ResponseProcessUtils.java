@@ -8,12 +8,16 @@ import org.apache.http.HttpResponse;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sun.misc.BASE64Decoder;
 import com.huawei.ais.sdk.util.HttpClientUtils;
+import com.cloud.sdk.util.StringUtils;
 /**
  * 访问服务返回结果信息验证的工具类
  */
 public class ResponseProcessUtils {
+    private static final Logger logger = LoggerFactory.getLogger(ResponseProcessUtils.class);
 	
 	/**
 	 * 打印出服务访问完成的HTTP状态码 
@@ -46,6 +50,10 @@ public class ResponseProcessUtils {
 		String result = HttpClientUtils.convertStreamToString(response.getEntity().getContent());
 		JSONObject resp = JSON.parseObject(result);
 		String imageString = (String)resp.get("result");
+		if (StringUtils.isNullOrEmpty(imageString)) {
+			logger.error("The base64 conversion is faild, response {}", resp);
+			return;
+		}
 		byte[] fileBytes =  new BASE64Decoder().decodeBuffer(imageString);
 		writeBytesToFile(fileName, fileBytes);
 	}
@@ -66,7 +74,7 @@ public class ResponseProcessUtils {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println(e.getMessage());
+			logger.error("Failed to generate file is faild, cause {}", e);
 		}
 		finally {
 			fc.close();

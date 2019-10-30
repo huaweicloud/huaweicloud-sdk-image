@@ -47,7 +47,7 @@ public class CelebrityRecognitionDemo {
 			
 			JSONObject json = new JSONObject();
 			json.put("image", fileBase64Str);
-			//json.put("threshold", "0.0");
+			json.put("threshold", "0.48");
 			StringEntity stringEntity = new StringEntity(json.toJSONString(), "utf-8");
 			
 			// 3.传入名人识别服务对应的uri参数, 传入名人识别服务需要的参数，
