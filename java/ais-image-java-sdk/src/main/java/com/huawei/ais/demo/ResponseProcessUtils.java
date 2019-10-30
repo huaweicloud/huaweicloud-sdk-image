@@ -10,6 +10,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import sun.misc.BASE64Decoder;
 import com.huawei.ais.sdk.util.HttpClientUtils;
+import com.cloud.sdk.util.StringUtils;
 /**
  * 访问服务返回结果信息验证的工具类
  */
@@ -46,6 +47,10 @@ public class ResponseProcessUtils {
 		String result = HttpClientUtils.convertStreamToString(response.getEntity().getContent());
 		JSONObject resp = JSON.parseObject(result);
 		String imageString = (String)resp.get("result");
+		if (StringUtils.isNullOrEmpty(imageString)){
+            System.out.println(imageString);
+            return;
+        }
 		byte[] fileBytes =  new BASE64Decoder().decodeBuffer(imageString);
 		writeBytesToFile(fileName, fileBytes);
 	}
