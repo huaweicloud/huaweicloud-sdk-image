@@ -47,10 +47,10 @@ public class ResponseProcessUtils {
 		String result = HttpClientUtils.convertStreamToString(response.getEntity().getContent());
 		JSONObject resp = JSON.parseObject(result);
 		String imageString = (String)resp.get("result");
-		if (StringUtils.isNullOrEmpty(imageString)){
-            System.out.println(imageString);
-            return;
-        }
+		if (StringUtils.isNullOrEmpty(imageString)) {
+			System.out.println(imageString);
+			return;
+		}
 		byte[] fileBytes =  new BASE64Decoder().decodeBuffer(imageString);
 		writeBytesToFile(fileName, fileBytes);
 	}
