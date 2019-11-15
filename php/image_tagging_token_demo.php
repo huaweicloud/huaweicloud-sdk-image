@@ -17,7 +17,7 @@ $filepath = "./data/image-tagging-demo.jpg";
 $data = file_to_base64($filepath);
 
 // obs链接需要和region区域一致，不同的region的obs资源不共享
-$data_url = "https://ais-sample-data.obs.myhuaweicloud.com/tagging-normal.jpg";
+$data_url = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/tagging-normal.jpg";
 
 $token = get_token($username, $password, $domainName);
 

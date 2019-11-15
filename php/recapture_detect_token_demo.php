@@ -16,7 +16,7 @@ $domainName = "*********";   // 配置用户名
 $filepath = "./data/recapture-detect-demo.jpg";
 $data = file_to_base64($filepath);
 
-$data_url = "https://ais-sample-data.obs.myhuaweicloud.com/recapture-detect.jpg";
+$data_url = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/recapture-detect.jpg";
 
 $token = get_token($username, $password, $domainName);
 
