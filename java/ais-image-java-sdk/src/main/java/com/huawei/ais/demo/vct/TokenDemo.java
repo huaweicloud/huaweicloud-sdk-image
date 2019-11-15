@@ -46,7 +46,7 @@ public class TokenDemo {
         String token = getToken(username, domainName, password, regionName);
 
         // 2. 准备好视频文件的OBS地址，公共读状态，或者临时授权下载状态
-        String videoUrl = "https://ais-sample-data.obs.cn-north-1.myhuaweicloud.com/news.mp4";
+        String videoUrl = "https://obs-ch-sdk-sample.obs.cn-north-1.myhuaweicloud.com/news.mp4";
 
         // 3. 调用视频标签服务
         callVCTService(token, videoUrl);
