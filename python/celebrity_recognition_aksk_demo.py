@@ -14,7 +14,7 @@ if __name__ == '__main__':
     app_secret = '************'
 
     # The OBS link should match the region, and the OBS resources of different regions are not shared
-    demo_data_url = 'https://ais-sample-data.obs.cn-north-1.myhuaweicloud.com/celebrity-recognition.jpg'
+    demo_data_url = 'https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/celebrity-recognition.jpg'
 
     # call interface use the url
     result = celebrity_recognition_aksk(app_key, app_secret, '', demo_data_url, 0.48)
