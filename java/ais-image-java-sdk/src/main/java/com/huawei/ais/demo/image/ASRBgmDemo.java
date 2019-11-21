@@ -39,7 +39,7 @@ public class ASRBgmDemo {
             JSONObject json = new JSONObject();
 
             // 视频的OBS URL （注：obs链接需要和region区域一致，不同的region的obs资源不共享）
-            String url = "https://obs-image-bj4.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
+            String url = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
             json.put("url", url);
 
             // 3.传入视频背景音乐识别服务对应的uri参数, 传入视频背景音乐识别服务需要的参数，
