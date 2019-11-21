@@ -15,7 +15,7 @@ $filepath = "./data/celebrity-recognition.jpg";
 $data = file_to_base64($filepath);
 
 // obs链接需要和region区域一致，不同的region的obs资源不共享
-$data_url = "https://ais-sample-data.obs.cn-north-1.myhuaweicloud.com/celebrity-recognition.jpg";
+$data_url = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/celebrity-recognition.jpg";
 
 // 图片的base64 的方式请求接口
 $result = celebrity_recognition_aksk($app_key, $app_secret, $data, "");

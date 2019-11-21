@@ -13,7 +13,7 @@ $app_key = "*************";
 $app_secret = "*************";
 
 // obs链接需要和region区域一致，不同的region的obs资源不共享
-$data_url = "https://obs-image-bj4.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
+$data_url = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
 
 $result = asr_bgm_aksk($app_key, $app_secret, $data_url);
 echo $result;
