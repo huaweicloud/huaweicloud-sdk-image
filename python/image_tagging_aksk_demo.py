@@ -14,7 +14,7 @@ if __name__ == '__main__':
     app_secret = '************'
 
     # The OBS link should match the region, and the OBS resources of different regions are not shared
-    demo_data_url = 'https://ais-sample-data.obs.myhuaweicloud.com/tagging-normal.jpg'
+    demo_data_url = 'https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/tagging-normal.jpg'
     # call interface use the url
     result = image_tagging_aksk(app_key, app_secret, '', demo_data_url, 'zh', 5, 30)
     print(result)

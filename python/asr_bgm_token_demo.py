@@ -15,7 +15,7 @@ if __name__ == '__main__':
     account_name = '******'  # the same as user_name in commonly use
 
     # The OBS link should match the region, and the OBS resources of different regions are not shared
-    demo_data_url = 'https://obs-image-bj4.obs.cn-north-4.myhuaweicloud.com/bgm_recognition'
+    demo_data_url = 'https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition'
     token = get_token(user_name, password, account_name)
 
     # call interface use the url

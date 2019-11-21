@@ -13,6 +13,6 @@ if __name__ == '__main__':
     app_secret = '*************'
 
     # The OBS link should match the region, and the OBS resources of different regions are not shared
-    demo_data_url = 'https://obs-image-bj4.obs.cn-north-4.myhuaweicloud.com/bgm_recognition'
+    demo_data_url = 'https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition'
     result = asr_bgm_aksk(app_key, app_secret, demo_data_url)
     print(result)
