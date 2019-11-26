@@ -11,7 +11,7 @@ var app_key = "**************";
 var app_secret = "************";
 
 // obs链接需要和region区域一致，不同的region的obs资源不共享
-obsUrl = "https://obs-image-bj4.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
+obsUrl = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
 
 bgm.asr_bgm_aksk(app_key, app_secret, obsUrl, function (result) {
     console.log(result);

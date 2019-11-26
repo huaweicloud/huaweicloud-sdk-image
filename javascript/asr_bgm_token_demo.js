@@ -13,7 +13,7 @@ var domain_name = "*******";     // 配置用户名
 var password = "*******";        // 密码
 
 // obs链接需要和region区域一致，不同的region的obs资源不共享
-obsUrl = "https://obs-image-bj4.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
+obsUrl = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
 token.getToken(username, domain_name, password, function (token) {
 
     bgm.asr_bgm(token, obsUrl, function (result) {
