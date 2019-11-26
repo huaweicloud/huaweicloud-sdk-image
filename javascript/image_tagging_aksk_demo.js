@@ -14,7 +14,7 @@ var filepath = "./data/image-tagging-demo.jpg";
 var data = utils.changeFileToBase64(filepath);
 
 // obs链接需要和region区域一致，不同的region的obs资源不共享
-demo_data_url = "https://ais-sample-data.obs.myhuaweicloud.com/tagging-normal.jpg";
+demo_data_url = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/tagging-normal.jpg";
 
 tagging.image_tagging_aksk(app_key, app_secret, data, "", 60, "en", 5, function (result) {
     console.log(result);
