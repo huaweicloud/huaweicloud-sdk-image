@@ -1,7 +1,7 @@
 # 图像识别服务curl使用示例
 
 ## 1.获取Token
-### 1.1创建 data.json文件，文件内容如下， 其中，需要修改USERNAME, PASSWORD，project中的name目前支持华北-北京一(cn-north-1)、亚太-香港(ap-southeast-1)
+### 1.1创建 data.json文件，文件内容如下， 其中，需要修改USERNAME, PASSWORD，project中的name目前支持华北-北京(cn-north-4)、亚太-香港(ap-southeast-1)
 ```json
 {
     "auth": {
@@ -30,7 +30,7 @@
 ```
 使用如下命令取得Token, 该Token在Header中：
 ```bash
-curl -X POST https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens --header 'content-type: application/json'  -d "@data.json"
+curl -X POST https://iam.myhuaweicloud.com/v3/auth/tokens --header 'content-type: application/json'  -d "@data.json"
 ```
 ## 2.申请开通服务
 
@@ -55,7 +55,7 @@ https://support.huaweicloud.com/api-image/image_03_0018.html
 使用如下命令访问
 注：亚太-香港(ap-southeast-1)区域 请使用链接 https://image.ap-southeast-1.myhuaweicloud.com/v1.0/image/tagging
 ```bash
-curl -X POST https://image.cn-north-1.myhuaweicloud.com/v1.0/image/tagging \ --header 'content-type: application/json' \ --header 'x-auth-token: xxxxxxx' -d "@data.json"
+curl -X POST https://image.cn-north-4.myhuaweicloud.com/v1.0/image/tagging \ --header 'content-type: application/json' \ --header 'x-auth-token: xxxxxxx' -d "@data.json"
 ```
 
 **OBS URL方式**
@@ -63,7 +63,7 @@ curl -X POST https://image.cn-north-1.myhuaweicloud.com/v1.0/image/tagging \ --h
 ```json
 {
       "image":"",
-      "url":"https://ais-sample-data.obs.myhuaweicloud.com/tagging-normal.jpg",
+      "url":"https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/tagging-normal.jpg",
       "language": "zh",
       "limit": 5,
       "threshold": 30.0
@@ -71,5 +71,5 @@ curl -X POST https://image.cn-north-1.myhuaweicloud.com/v1.0/image/tagging \ --h
 ```
 使用如下命令访问
 ```bash
-curl -X POST https://image.cn-north-1.myhuaweicloud.com/v1.0/image/tagging \ --header 'content-type: application/json' \ --header 'x-auth-token: xxxxxxx' -d "@data.json"
+curl -X POST https://image.cn-north-4.myhuaweicloud.com/v1.0/image/tagging \ --header 'content-type: application/json' \ --header 'x-auth-token: xxxxxxx' -d "@data.json"
 ```
