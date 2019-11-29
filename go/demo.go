@@ -62,7 +62,7 @@ func Test_InstrumentAkskDemo(ak string, sk string) {
 func Test_BgmAkskDemo(ak string, sk string) {
 
 	// The OBS link should match the region, and the OBS resources of different regions are not shared
-	url := "https://obs-test-llg.obs.cn-north-1.myhuaweicloud.com/bgm_recognition"
+	url := "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition"
 	result := sdk.AsrBgmAksk(ak, sk, url)
 	fmt.Println(result)
 }
@@ -71,7 +71,7 @@ func Test_CelebrityRecognitionAkskDemo(ak string, sk string) {
 	var threshold float32 = 0.48
 
 	// The OBS link should match the region, and the OBS resources of different regions are not shared
-	url := "https://ais-sample-data.obs.cn-north-1.myhuaweicloud.com/celebrity-recognition.jpg"
+	url := "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/celebrity-recognition.jpg"
 	result := sdk.CelebrityRecognitionAksk(ak, sk, "", url, threshold)
 	fmt.Println(result)
 
@@ -113,7 +113,7 @@ func Test_ImageTaggingAkskDemo(ak string, sk string) {
 	var threshold float32 = 60.0
 
 	// The OBS link should match the region, and the OBS resources of different regions are not shared
-	url := "https://ais-sample-data.obs.myhuaweicloud.com/tagging-normal.jpg"
+	url := "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/tagging-normal.jpg"
 	result := sdk.ImageTaggingAksk(ak, sk, "", url, language, limit, threshold)
 	fmt.Println(result)
 
@@ -130,7 +130,7 @@ func Test_RecaptureDetectAkskDemo(ak string, sk string) {
 	var threshold float32 = 0.95
 
 	// The OBS link should match the region, and the OBS resources of different regions are not shared
-	url := "https://ais-sample-data.obs.myhuaweicloud.com/recapture-detect.jpg"
+	url := "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/recapture-detect.jpg"
 	result := sdk.RecaptureDetectAksk(ak, sk, "", url, threshold, scene)
 	fmt.Println(result)
 
