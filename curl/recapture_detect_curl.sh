@@ -5,12 +5,12 @@
 #
 TOKEN=''
 
-curl -X POST https://image.cn-north-1.myhuaweicloud.com/v1.0/image/recapture-detect \
+curl -X POST https://image.cn-north-4.myhuaweicloud.com/v1.0/image/recapture-detect \
   --header 'Content-Type: application/json' \
   --header "X-Auth-Token: $TOKEN" -d '
  {
       "image":"",
-      "url":"https://ais-sample-data.obs.myhuaweicloud.com/recapture-detect.jpg",
+      "url":"https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/recapture-detect.jpg",
       "threshold":0.99,
       "scene":"['recapture']"
 }'

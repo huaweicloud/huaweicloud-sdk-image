@@ -24,7 +24,7 @@ DOMAIN_NAME=$3
         }, 
         "scope": {
             "project": {
-                "name": "cn-north-1"
+                "name": "cn-north-4"
             }
         }
     }
@@ -33,7 +33,7 @@ EOF
 #
 # Here, you should substitude the **username** **password** **domainname**
 #
-curl -X POST https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens \
+curl -X POST https://iam.myhuaweicloud.com/v3/auth/tokens \
     --header 'content-type: application/json' \
     -D headers \
     -d "@data.json"
