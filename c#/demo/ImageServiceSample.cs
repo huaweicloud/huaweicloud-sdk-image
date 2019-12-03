@@ -9,7 +9,7 @@ namespace ImageDemo
     {
         static void Main(string[] args)
         {
-            // Services currently support North China-Beijing (cn-north-1,cn-north-4), Asia Pacific-Hong Kong (ap-southeast-1)
+            // Services currently support North China-Beijing (cn-north-4), Asia Pacific-Hong Kong (ap-southeast-1)
             String regionName = "*******";
             String username = "*******";
             String password = "*******";
@@ -64,7 +64,7 @@ namespace ImageDemo
             Console.WriteLine(reslut);
 
             // The OBS link must match the region, and the OBS resources of different regions are not shared
-            dataUrl = "https://ais-sample-data.obs.myhuaweicloud.com/tagging-normal.jpg";
+            dataUrl = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/tagging-normal.jpg";
 
             // post data by obs url
             reslut = ImageService.ImageTaggingToken(token, "", dataUrl, 60, "en", 5, endpoint);
@@ -76,7 +76,7 @@ namespace ImageDemo
         private static void AsrBgm(String token, String endpoint)
         {
             // The OBS link must match the region, and the OBS resources of different regions are not shared
-            String dataUrl = "https://obs-test-llg.obs.cn-north-1.myhuaweicloud.com/bgm_recognition";
+            String dataUrl = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/bgm_recognition";
 
             // post data by obs url
             String reslut = ImageService.AsrBgmToken(token, dataUrl, endpoint);
@@ -97,7 +97,7 @@ namespace ImageDemo
             Console.WriteLine(reslut);
 
             // The OBS link must match the region, and the OBS resources of different regions are not shared
-            dataUrl = "https://ais-sample-data.obs.cn-north-1.myhuaweicloud.com/celebrity-recognition.jpg";
+            dataUrl = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/celebrity-recognition.jpg";
 
             // post data by obs url
             reslut = ImageService.CelebrityRecognitionToken(token, "", dataUrl, threshold, endpoint);
@@ -155,7 +155,7 @@ namespace ImageDemo
             Console.WriteLine(reslut);
 
             // The OBS link must match the region, and the OBS resources of different regions are not shared
-            dataUrl = "https://ais-sample-data.obs.myhuaweicloud.com/recapture-detect.jpg";
+            dataUrl = "https://sdk-obs-source-save.obs.cn-north-4.myhuaweicloud.com/recapture-detect.jpg";
 
             // post data by obs url
             reslut = ImageService.RecaptureDetectToken(token, "", dataUrl, threshold, scene, endpoint);
