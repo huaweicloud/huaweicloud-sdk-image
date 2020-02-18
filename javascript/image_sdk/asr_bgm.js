@@ -14,7 +14,7 @@ module.exports = {
             "X-Auth-Token": token,
             "Content-Length": requestBody.length
         };
-        var options = utils.getHttpRequestEntityOptions(endPoint, "POST", ais.ASR_BGM, headers, );
+        var options = utils.getHttpRequestEntityOptions(endPoint, "POST", ais.ASR_BGM, headers);
 
         var requset = https.request(options, function (response) {
 
