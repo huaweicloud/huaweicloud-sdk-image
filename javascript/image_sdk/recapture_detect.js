@@ -59,12 +59,12 @@ module.exports = {
             }
 
             response.on("data", function (chunk) {
-                console.log(chunk.toString());
+                callback(chunk.toString());
             })
         });
 
         request.on("error", function (err) {
-            callback(err.message);
+            console.log(err.message);
         });
 
         request.write(req.body);
