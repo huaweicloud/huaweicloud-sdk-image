@@ -39,7 +39,8 @@ public class RecaptureDetectionDemo {
 			String uri = "/v1.0/image/recapture-detect";
 			byte[] fileData = FileUtils.readFileToByteArray(new File("data/recapture-detect-demo-1.jpg"));
 			String fileBase64Str = Base64.encodeBase64String(fileData);
-			
+
+			// 注：请求参数详情可参考 https://support.huaweicloud.com/api-image/image_03_0026.html
 			JSONObject json = new JSONObject();
 			json.put("image", fileBase64Str);
 			json.put("threshold", 0.95);

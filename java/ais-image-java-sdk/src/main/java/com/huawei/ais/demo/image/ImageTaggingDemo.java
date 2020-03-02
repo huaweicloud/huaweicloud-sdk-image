@@ -43,7 +43,8 @@ public class ImageTaggingDemo {
 			String uri = "/v1.0/image/tagging";
 			byte[] fileData = FileUtils.readFileToByteArray(new File("data/image-tagging-demo-1.jpg"));
 			String fileBase64Str = Base64.encodeBase64String(fileData);
-			
+
+			// 注：请求参数详情可参考 https://support.huaweicloud.com/api-image/image_03_0025.html
 			JSONObject json = new JSONObject();
 			json.put("image", fileBase64Str);
 			json.put("limit", -1);
