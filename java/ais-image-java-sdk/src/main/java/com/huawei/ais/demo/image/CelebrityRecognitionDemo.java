@@ -42,9 +42,10 @@ public class CelebrityRecognitionDemo {
 			/**
 			 * TODO 运行此样例时可在data目录放入待识别的人像图片，此处仅用一张非人像图片表明设置文件名的位置
 			 */
-			byte[] fileData = FileUtils.readFileToByteArray(new File("data/image-tagging-demo-1.jpg"));
+			byte[] fileData = FileUtils.readFileToByteArray(new File("data/celebrity-recognition.jpg"));
 			String fileBase64Str = Base64.encodeBase64String(fileData);
-			
+
+			// 注：请求参数详情可参考 https://support.huaweicloud.com/api-image/image_03_0027.html
 			JSONObject json = new JSONObject();
 			json.put("image", fileBase64Str);
 			json.put("threshold", "0.48");

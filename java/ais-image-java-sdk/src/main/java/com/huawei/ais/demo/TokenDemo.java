@@ -103,7 +103,7 @@ public class TokenDemo {
 	}
 
 	/**
-	 * 使用Base64编码后的文件方式，使用Token认证方式访问服务
+	 * 图像标签使用Base64编码后的文件方式，使用Token认证方式访问服务
 	 * @param token token认证串
 	 * @param formFile 文件路径
 	 * @throws IOException
@@ -113,6 +113,55 @@ public class TokenDemo {
 		Header[] headers = new Header[] {new BasicHeader("X-Auth-Token", token) ,new BasicHeader("Content-Type", "application/json")};
 		String requestBody=toBase64Str(formFile);
 		StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
+		try {
+			HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+			System.out.println(response);
+			String content = IOUtils.toString(response.getEntity().getContent());
+			System.out.println(JSON.toJSONString(JSON.parse(content.toString()), SerializerFeature.PrettyFormat));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 名人识别使用Base64编码后的文件方式，使用Token认证方式访问服务
+	 * @param token token认证串
+	 * @param formFile 文件路径
+	 * @throws IOException
+	 */
+	public static void requestCelebrityRecognitionBase64(String token, String formFile) throws IOException {
+		String url = ServiceAccessBuilder.getCurrentEndpoint(projectName)+"/v1.0/image/celebrity-recognition";
+		Header[] headers = new Header[] {new BasicHeader("X-Auth-Token", token) ,new BasicHeader("Content-Type", "application/json")};
+		String requestBody=toBase64Str(formFile);
+		StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
+		try {
+			HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+			System.out.println(response);
+			String content = IOUtils.toString(response.getEntity().getContent());
+			System.out.println(JSON.toJSONString(JSON.parse(content.toString()), SerializerFeature.PrettyFormat));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 翻拍识别使用Base64编码后的文件方式，使用Token认证方式访问服务
+	 * @param token token认证串
+	 * @param formFile 文件路径
+	 * @throws IOException
+	 */
+	public static void requestRecaptureDetectionBase64(String token, String formFile) throws IOException {
+		String url = ServiceAccessBuilder.getCurrentEndpoint(projectName)+"/v1.0/image/recapture-detect";
+		Header[] headers = new Header[] {new BasicHeader("X-Auth-Token", token) ,new BasicHeader("Content-Type", "application/json")};
+		byte[] fileData = FileUtils.readFileToByteArray(new File(formFile));
+		String fileBase64Str = Base64.encodeBase64String(fileData);
+
+		JSONObject json = new JSONObject();
+		json.put("image", fileBase64Str);
+		json.put("threshold", 0.95);
+		json.put("scene", new String[]{"recapture"});
+		StringEntity stringEntity = new StringEntity(json.toJSONString(), "utf-8");
+
 		try {
 			HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
 			System.out.println(response);
@@ -149,6 +198,10 @@ public class TokenDemo {
 		String token = getToken(username, password, projectName);
 		System.out.println(token);
 		requestImageTaggingBase64(token, "data/image-tagging-demo-1.jpg");
+
+		requestCelebrityRecognitionBase64(token, "data/celebrity-recognition.jpg");
+
+		requestRecaptureDetectionBase64(token, "data/recapture-detect-demo-1.jpg");
 
 	}
 
