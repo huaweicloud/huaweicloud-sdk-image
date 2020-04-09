@@ -26,9 +26,9 @@ def celebrity_recognition(token, image, url, threshold=4.8):
 
     status_code, resp = utils.request_token(_url, _data, token)
     if sys.version_info.major < 3:
-        return resp.decode('unicode-escape').encode('utf-8')
+        return resp
     else:
-        return resp.decode('unicode_escape')
+        return resp.decode('utf-8')
 
 
 #
@@ -62,6 +62,6 @@ def celebrity_recognition_aksk(_ak, _sk, image, url, threshold=4.8):
 
     status_code, resp = utils.request_aksk(sig, kreq, _url)
     if sys.version_info.major < 3:
-        return resp.decode('unicode-escape').encode('utf-8')
+        return resp
     else:
-        return resp.decode('unicode_escape')
+        return resp.decode('utf-8')
