@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">image</string>
+    <string name="title">图像标签示例</string>
+    <string name="confirm">确定</string>
+    <string name="result_msg">服务返回结果:</string>
+</resources>
