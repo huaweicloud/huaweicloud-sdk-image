@@ -31,11 +31,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-    implementation files('libs/commons-codec-1.9.jar')
-    implementation files('libs/commons-io-2.4.jar')
-    implementation files('libs/fastjson-1.2.66.jar')
-    implementation files('libs/commons-logging-1.1.3.jar')
+    implementation 'com.alibaba:fastjson:1.2.66'
+    implementation 'joda-time:joda-time:2.7'
     implementation files('libs/java-sdk-core-3.0.6.jar')
-    implementation files('libs/joda-time-2.7.jar')
-    implementation files('libs/fastjson-1.2.66.jar')
 }

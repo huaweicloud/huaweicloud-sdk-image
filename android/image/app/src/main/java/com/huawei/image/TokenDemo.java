@@ -9,20 +9,13 @@ import com.cloud.sdk.util.StringUtils;
 import com.huawei.image.utils.HttpClientUtils;
 import com.huawei.image.utils.ServiceAccessBuilder;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 /**
  * 使用Token认证方式访问服务

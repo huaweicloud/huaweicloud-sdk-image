@@ -6,12 +6,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.huawei.image.utils.AccessService;
 import com.huawei.image.utils.HttpClientUtils;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-
-
 import okhttp3.Call;
 import okhttp3.Callback;
 

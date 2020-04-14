@@ -2,18 +2,12 @@ package com.huawei.image;
 
 import android.graphics.Bitmap;
 
-import com.alibaba.fastjson.JSONObject;
 import com.huawei.image.utils.AccessService;
 import com.huawei.image.utils.HttpClientUtils;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-
+import com.alibaba.fastjson.JSONObject;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Response;
 
 public class SuperResolution {
     private AccessService service;
