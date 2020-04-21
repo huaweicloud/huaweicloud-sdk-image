@@ -1,4 +1,4 @@
-package com.huawei.ais.demo.deblur;
+package com.huawei.ais.demo.image;
 
 import java.io.File;
 import java.io.IOException;
