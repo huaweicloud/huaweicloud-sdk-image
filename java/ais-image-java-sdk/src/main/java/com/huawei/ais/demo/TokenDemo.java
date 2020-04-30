@@ -252,7 +252,7 @@ public class TokenDemo {
             //验证服务调用返回的状态是否成功，如果为200, 为成功, 否则失败。
             ResponseProcessUtils.processResponseStatus(response);
 
-            //处理服务返回的字符流，生成对应的低光照增强处理后对应的图片文件。
+            //处理服务返回的字符流，生成对应的超分重建处理后对应的图片文件。
             ResponseProcessUtils.processResponseWithImage(response, "data/super-resolution-demo-1.token.bmp");
         } catch (Exception e) {
             e.printStackTrace();
@@ -260,7 +260,7 @@ public class TokenDemo {
     }
 
     /**
-     * 低光照增强使用Base64编码后的文件方式，使用Token认证方式访问服务
+     * 图像去雾使用Base64编码后的文件方式，使用Token认证方式访问服务
      *
      * @param token    token认证串
      * @param formFile 文件路径
@@ -283,7 +283,7 @@ public class TokenDemo {
             //验证服务调用返回的状态是否成功，如果为200, 为成功, 否则失败。
             ResponseProcessUtils.processResponseStatus(response);
 
-            //处理服务返回的字符流，生成对应的低光照增强处理后对应的图片文件。
+            //处理服务返回的字符流，生成对应的图像去雾处理后对应的图片文件。
             ResponseProcessUtils.processResponseWithImage(response, "data/defog-demo-1-token.png");
         } catch (Exception e) {
             e.printStackTrace();
