@@ -20,6 +20,6 @@ if __name__ == '__main__':
     token = get_token(user_name, password, account_name)
 
     # call interface use base64 file
-    result = dark_enhance(token, encode_to_base64('data/dark-enhance-demo.bmp'), '0.95')
+    result = dark_enhance(token, encode_to_base64('data/dark-enhance-demo.bmp'), '0.9')
     result_obj = json.loads(result)
     decode_to_wave_file(result_obj['result'], 'data/dark-enhance-demo-token.bmp')
