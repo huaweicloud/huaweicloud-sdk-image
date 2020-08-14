@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
-import ssl
 import base64
 import json
 import image_sdk.ais as ais
@@ -20,12 +19,7 @@ if sys.version_info.major < 3:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
-            r = urllib2.urlopen(kreq, context=_context, timeout=5)
+            r = urllib2.urlopen(kreq, timeout=5)
 
         #
         # We use HTTPError and URLError，because urllib2 can't process the 4XX &
@@ -52,12 +46,7 @@ if sys.version_info.major < 3:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
-            r = urllib2.urlopen(kreq, context=_context, timeout=5)
+            r = urllib2.urlopen(kreq, timeout=5)
 
             #
             # We use HTTPError and URLError，because urllib2 can't process the 4XX &
@@ -81,13 +70,8 @@ if sys.version_info.major < 3:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib2.Request(url=_url, data=kreq.body, headers=kreq.headers)
-            r = urllib2.urlopen(req, context=_context, timeout=5)
+            r = urllib2.urlopen(req, timeout=5)
         #
         # We use HTTPError and URLError，because urllib2 can't process the 4XX &
         # 500 error in the single urlopen function.
@@ -111,13 +95,8 @@ if sys.version_info.major < 3:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib2.Request(url=_url, headers=kreq.headers)
-            r = urllib2.urlopen(req, context=_context, timeout=5)
+            r = urllib2.urlopen(req, timeout=5)
 
         #
         # We use HTTPError and URLError，because urllib2 can't process the 4XX &
@@ -158,10 +137,6 @@ else:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
             r = urllib.request.urlopen(kreq)
 
         #
@@ -191,12 +166,7 @@ else:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
-            r = urllib.request.urlopen(kreq, context=_context)
+            r = urllib.request.urlopen(kreq)
         #
         # We use HTTPError and URLError，because urllib can't process the 4XX &
         # 500 error in the single urlopen function.
@@ -219,13 +189,8 @@ else:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib.request.Request(url=_url, data=kreq.body, headers=kreq.headers)
-            r = urllib.request.urlopen(req, context=_context)
+            r = urllib.request.urlopen(req)
         #
         # We use HTTPError and URLError，because urllib can't process the 4XX &
         # 500 error in the single urlopen function.
@@ -249,13 +214,8 @@ else:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib.request.Request(url=_url, headers=kreq.headers)
-            r = urllib.request.urlopen(req, context=_context)
+            r = urllib.request.urlopen(req)
         #
         # We use HTTPError and URLError，because urllib can't process the 4XX &
         # 500 error in the single urlopen function.
