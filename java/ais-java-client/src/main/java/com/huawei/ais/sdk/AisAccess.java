@@ -81,11 +81,14 @@ public class AisAccess extends AccessServiceImpl{
 					break;
 				}
 
+				Map<String, String> header = new HashMap<String, String>();
+				header.put("Content-Type", ContentType.APPLICATION_JSON.toString());
+
 				URL url = new URL(generateWholeUrl(authInfo.getEndPoint(), requestUrl));
 				HttpMethodName httpMethod = HttpMethodName.PUT;
 
 				InputStream content = new ByteArrayInputStream(putBody.getBytes());
-				response = access(url, content, (long) putBody.getBytes().length, httpMethod);
+				response = access(url, header, content, (long) putBody.getBytes().length, httpMethod);
 				int statusCode = response.getStatusLine().getStatusCode();
 				if(!HttpClientUtils.needRetry(statusCode)){
 					break;
@@ -121,6 +124,42 @@ public class AisAccess extends AccessServiceImpl{
 
 				URL url = new URL(generateWholeUrl(authInfo.getEndPoint(), requestUrl));
 				HttpMethodName httpMethod = HttpMethodName.GET;
+				response = access(url, httpMethod);
+				int statusCode = response.getStatusLine().getStatusCode();
+				if(!HttpClientUtils.needRetry(statusCode)){
+					break;
+				}else if (statusCode == HttpClientUtils.SERVER_TIRED_CODE){
+					Thread.sleep(500);
+				}
+			} catch (Exception e) {
+				if (retries < 1){
+					logger.error("Failure to process request, url {}, cause by:", requestUrl, e);
+				}else {
+					logger.error("Failure to process request, url {}, retry time {}, cause by:", requestUrl, retries, e);
+				}
+			}finally {
+				retries++;
+			}
+		}
+		return response;
+	}
+
+	public HttpResponse delete(String requestUrl) {
+
+		HttpResponse response = null;
+
+		Long startTime = System.currentTimeMillis();
+		int retries = 0;
+		while (retries <= retryTimes){
+			try {
+				Long requestTime = System.currentTimeMillis();
+				if ((requestTime - startTime) > DEFAULT_MAX_REQUEST_TIME){
+					logger.error("Failure to process request, time used {},The request time has exceeded the maximum limit", (requestTime - startTime));
+					break;
+				}
+
+				URL url = new URL(generateWholeUrl(authInfo.getEndPoint(), requestUrl));
+				HttpMethodName httpMethod = HttpMethodName.DELETE;
 				response = access(url, httpMethod);
 				int statusCode = response.getStatusLine().getStatusCode();
 				if(!HttpClientUtils.needRetry(statusCode)){
