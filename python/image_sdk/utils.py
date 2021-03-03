@@ -6,6 +6,9 @@ import base64
 import json
 import image_sdk.ais as ais
 
+_context = None
+if not ais.AisService.CERTIFICATE_VALIDATION:
+    _context = ssl._create_unverified_context()
 
 if sys.version_info.major < 3:
     import urllib
@@ -20,11 +23,6 @@ if sys.version_info.major < 3:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             r = urllib2.urlopen(kreq, context=_context, timeout=5)
 
         #
@@ -52,11 +50,6 @@ if sys.version_info.major < 3:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             r = urllib2.urlopen(kreq, context=_context, timeout=5)
 
             #
@@ -81,11 +74,6 @@ if sys.version_info.major < 3:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib2.Request(url=_url, data=kreq.body, headers=kreq.headers)
             r = urllib2.urlopen(req, context=_context, timeout=5)
         #
@@ -111,11 +99,6 @@ if sys.version_info.major < 3:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib2.Request(url=_url, headers=kreq.headers)
             r = urllib2.urlopen(req, context=_context, timeout=5)
 
@@ -158,11 +141,7 @@ else:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            r = urllib.request.urlopen(kreq)
+            r = urllib.request.urlopen(kreq, context=_context)
 
         #
         # We use HTTPError and URLError，because urllib2 can't process the 4XX &
@@ -191,11 +170,6 @@ else:
         resp = None
         status_code = None
         try:
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             r = urllib.request.urlopen(kreq, context=_context)
         #
         # We use HTTPError and URLError，because urllib can't process the 4XX &
@@ -219,11 +193,6 @@ else:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib.request.Request(url=_url, data=kreq.body, headers=kreq.headers)
             r = urllib.request.urlopen(req, context=_context)
         #
@@ -249,11 +218,6 @@ else:
         status_code = None
         try:
             sig.Sign(kreq)
-            #
-            # Here we use the unvertified-ssl-context, Because in FunctionStage
-            # the client CA-validation have some problem, so we must do this.
-            #
-            _context = ssl._create_unverified_context()
             req = urllib.request.Request(url=_url, headers=kreq.headers)
             r = urllib.request.urlopen(req, context=_context)
         #
