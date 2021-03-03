@@ -22,9 +22,7 @@ import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.*;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
@@ -142,12 +140,48 @@ public class HttpClientUtils {
 		return response;
 	}
 
+	public static HttpResponse put(String url, Header[] headers, HttpEntity entity, int connectionTimeout, int connectionRequestTimeout, int socketTimeout) {
+		CloseableHttpResponse response = null;
+		CloseableHttpClient httpClient=null;
+		try {
+			httpClient = acceptsUntrustedCertsHttpClient(connectionTimeout, connectionRequestTimeout, socketTimeout);
+			HttpPut put = new HttpPut(url);
+			if (null != headers) {
+				put.setHeaders(headers);
+			}
+			if (null != entity) {
+				put.setEntity(entity);
+			}
+			response = httpClient.execute(put);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
+		}
+		return response;
+	}
+
 	public static HttpResponse get(String url, Header[] headers) {
 		CloseableHttpResponse response = null;
 		CloseableHttpClient httpClient=null;
 		try {
 			httpClient= HttpClientUtils.acceptsUntrustedCertsHttpClient();
 			HttpGet get = new HttpGet(url);
+			if (null != headers) {
+				get.setHeaders(headers);
+			}
+			response = httpClient.execute(get);
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		return response;
+	}
+
+	public static HttpResponse delete(String url, Header[] headers) {
+		CloseableHttpResponse response = null;
+		CloseableHttpClient httpClient=null;
+		try {
+			httpClient= HttpClientUtils.acceptsUntrustedCertsHttpClient();
+			HttpDelete get = new HttpDelete(url);
 			if (null != headers) {
 				get.setHeaders(headers);
 			}
