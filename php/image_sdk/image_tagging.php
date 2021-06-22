@@ -5,7 +5,7 @@ require "ais.php";
 /**
  * token 方式
  */
-function image_tagging($token, $data, $url, $threshold, $language, $limit = -1)
+function image_tagging($token, $data, $url, $threshold, $language="zh", $limit = -1)
 {
     $endPoint = get_endpoint(IMAGE);
     // 构建请求信息
@@ -58,7 +58,7 @@ function image_tagging($token, $data, $url, $threshold, $language, $limit = -1)
 /**
  * ak,sk 方式
  */
-function image_tagging_aksk($_ak, $_sk, $data, $url, $threshold, $language, $limit = -1)
+function image_tagging_aksk($_ak, $_sk, $data, $url, $threshold, $language="zh", $limit = -1)
 {
     // 构建ak，sk对象
     $signer = new Signer();
