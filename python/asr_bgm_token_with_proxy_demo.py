@@ -10,7 +10,7 @@ if __name__ == '__main__':
     os.environ['http_proxy'] = 'http://username:password@proxyExample.huawei.com:8080'
     os.environ['https_proxy'] = 'http://username:password@proxyExample.huawei.com:8080'
 
-    # Services currently support North China-Beijing(cn-north-4), Asia Pacific-Hong Kong(ap-southeast-1)
+    # Services currently support North China-Beijing(cn-north-4), CN-Hong Kong(ap-southeast-1)
     init_global_env('cn-north-4')
 
     #

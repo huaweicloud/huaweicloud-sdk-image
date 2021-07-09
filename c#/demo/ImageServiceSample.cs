@@ -9,7 +9,7 @@ namespace ImageDemo
     {
         static void Main(string[] args)
         {
-            // Services currently support North China-Beijing (cn-north-4), Asia Pacific-Hong Kong (ap-southeast-1)
+            // Services currently support North China-Beijing (cn-north-4), CN-Hong Kong (ap-southeast-1)
             String regionName = "*******";
             String username = "*******";
             String password = "*******";

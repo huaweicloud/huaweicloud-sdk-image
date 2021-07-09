@@ -4,7 +4,7 @@
 var bgm = require("./image_sdk/asr_bgm");
 var utils = require("./image_sdk/utils");
 
-// 初始化服务的区域信息，目前支持华北-北京(cn-north-4)、亚太-香港(ap-southeast-1)等区域信息
+// 初始化服务的区域信息，目前支持华北-北京(cn-north-4)、中国-香港(ap-southeast-1)等区域信息
 utils.initRegion("cn-north-4");
 
 var app_key = "**************";

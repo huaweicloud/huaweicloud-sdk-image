@@ -6,7 +6,7 @@ require "./image_sdk/gettoken.php";
 require "./image_sdk/recapture_detect.php";
 require "./image_sdk/utils.php";
 
-// region目前支持华北-北京(cn-north-4)、亚太-香港(ap-southeast-1)
+// region目前支持华北-北京(cn-north-4)、中国-香港(ap-southeast-1)
 init_region($region = 'cn-north-4');
 
 $username = "********";      // 配置用户名
