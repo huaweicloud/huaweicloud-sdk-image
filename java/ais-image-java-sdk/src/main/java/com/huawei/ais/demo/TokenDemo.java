@@ -24,9 +24,9 @@ import com.huawei.ais.sdk.util.HttpClientUtils;
  */
 public class TokenDemo {
     private static final String projectName = "cn-north-4"; // 此处，请输入服务的区域信息，目前支持华北-北京(cn-north-4)以及中国-香港(ap-southeast-1)
-    public static int connectionTimeout = 5000; //连接目标url超时限制参数
-    public static int connectionRequestTimeout = 1000;//连接池获取可用连接超时限制参数
-    public static int socketTimeout = 5000;//获取服务器响应数据超时限制参数
+    public static int connectionTimeout = 10000; //连接目标url超时限制参数
+    public static int connectionRequestTimeout = 5000;//连接池获取可用连接超时限制参数
+    public static int socketTimeout = 20000;//获取服务器响应数据超时限制参数
 
     /**
      * 构造使用Token方式访问服务的请求Token对象
