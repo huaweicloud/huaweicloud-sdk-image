@@ -9,7 +9,7 @@ import (
 func main() {
 	/*
 	 * Services currently support North China-Beijing 1 (cn-north-1),
-	 * North China-Beijing 4 (cn-north-4), Asia Pacific-Hong Kong (ap-southeast-1)
+	 * North China-Beijing 4 (cn-north-4), CN-Hong Kong (ap-southeast-1)
 	 */
 	sdk.InitRegion("cn-north-1")
 	

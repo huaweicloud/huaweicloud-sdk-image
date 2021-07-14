@@ -10,6 +10,8 @@ _context = None
 if not ais.AisService.CERTIFICATE_VALIDATION:
     _context = ssl._create_unverified_context()
 
+socket_timeout = ais.AisService.DEFAULT_TIMEOUT
+
 if sys.version_info.major < 3:
     import urllib
     import urllib2
@@ -23,7 +25,7 @@ if sys.version_info.major < 3:
         resp = None
         status_code = None
         try:
-            r = urllib2.urlopen(kreq, context=_context, timeout=5)
+            r = urllib2.urlopen(kreq, context=_context, timeout=socket_timeout)
 
         #
         # We use HTTPError and URLError，because urllib2 can't process the 4XX &
@@ -50,7 +52,7 @@ if sys.version_info.major < 3:
         resp = None
         status_code = None
         try:
-            r = urllib2.urlopen(kreq, context=_context, timeout=5)
+            r = urllib2.urlopen(kreq, context=_context, timeout=socket_timeout)
 
             #
             # We use HTTPError and URLError，because urllib2 can't process the 4XX &
@@ -75,7 +77,7 @@ if sys.version_info.major < 3:
         try:
             sig.Sign(kreq)
             req = urllib2.Request(url=_url, data=kreq.body, headers=kreq.headers)
-            r = urllib2.urlopen(req, context=_context, timeout=5)
+            r = urllib2.urlopen(req, context=_context, timeout=socket_timeout)
         #
         # We use HTTPError and URLError，because urllib2 can't process the 4XX &
         # 500 error in the single urlopen function.
@@ -100,7 +102,7 @@ if sys.version_info.major < 3:
         try:
             sig.Sign(kreq)
             req = urllib2.Request(url=_url, headers=kreq.headers)
-            r = urllib2.urlopen(req, context=_context, timeout=5)
+            r = urllib2.urlopen(req, context=_context, timeout=socket_timeout)
 
         #
         # We use HTTPError and URLError，because urllib2 can't process the 4XX &
@@ -127,7 +129,7 @@ else:
     import urllib.request
     from urllib.error import URLError, HTTPError
 
-    socket.setdefaulttimeout(5)
+    socket.setdefaulttimeout(socket_timeout)
 
     def request_token(_url, _data, token):
         _headers = {

@@ -20,7 +20,7 @@ function get_token($username, $password, $domainName)
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl, CURLOPT_NOBODY, FALSE);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+    curl_setopt($curl, CURLOPT_TIMEOUT, DEFAULT_TIMEOUT);
 
     //获取响应头的信息，默认不获取
     curl_setopt($curl, CURLOPT_HEADER, true);

@@ -18,5 +18,5 @@ class AisService:
     IMAGE_SERVICE = 'image'
     REGION_MSG = 'region_name'
     CERTIFICATE_VALIDATION = True
-
+    DEFAULT_TIMEOUT = 20
 

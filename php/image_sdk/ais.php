@@ -39,3 +39,6 @@ define("IMAGE", "image");
 
 // 异步查询任务失败最大重试次数
 define("RETRY_MAX_TIMES", 3);
+
+// 请求超时时间
+define("DEFAULT_TIMEOUT", 20);

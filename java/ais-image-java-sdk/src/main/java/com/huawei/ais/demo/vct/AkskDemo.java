@@ -29,8 +29,8 @@ public class AkskDemo {
                 .ak("######")                       // your ak
                 .sk("######")                       // your sk
                 .region("cn-north-1")               // 视频标签服务目前支持华北-北京一(cn-north-1)
-                .connectionTimeout(5000)            // 连接目标url超时限制
-                .connectionRequestTimeout(1000)     // 连接池获取可用连接超时限制
+                .connectionTimeout(10000)            // 连接目标url超时限制
+                .connectionRequestTimeout(5000)     // 连接池获取可用连接超时限制
                 .socketTimeout(20000)               // 获取服务器响应数据超时限制
                 .retryTimes(3)                      // 请求异常时的重试次数
                 .build();

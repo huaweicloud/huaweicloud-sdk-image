@@ -29,7 +29,7 @@ function asr_bgm($token, $url)
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl, CURLOPT_NOBODY, FALSE);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+    curl_setopt($curl, CURLOPT_TIMEOUT, DEFAULT_TIMEOUT);
 
     // 执行请求信息
     $response = curl_exec($curl);
@@ -84,7 +84,7 @@ function asr_bgm_aksk($_ak, $_sk, $url)
     // 获取ak，sk方式的请求对象，执行请求
     $curl = $signer->Sign($req);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+    curl_setopt($curl, CURLOPT_TIMEOUT, DEFAULT_TIMEOUT);
     $response = curl_exec($curl);
     $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     if ($status == 0) {

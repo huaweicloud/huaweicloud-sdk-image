@@ -27,9 +27,9 @@ public class CelebrityRecognitionDemo {
 		AisAccess service = ServiceAccessBuilder.builder()
 				.ak("######")                       // your ak
 				.sk("######")                       // your sk
-				.region("cn-north-4")               // 图像识别服务目前支持华北-北京(cn-north-4)以及亚太-香港(ap-southeast-1)
-				.connectionTimeout(5000)            // 连接目标url超时限制
-				.connectionRequestTimeout(1000)     // 连接池获取可用连接超时限制
+				.region("cn-north-4")               // 图像识别服务目前支持华北-北京(cn-north-4)以及中国-香港(ap-southeast-1)
+				.connectionTimeout(10000)            // 连接目标url超时限制
+				.connectionRequestTimeout(5000)     // 连接池获取可用连接超时限制
 				.socketTimeout(20000)               // 获取服务器响应数据超时限制
 				.retryTimes(3)                      // 请求异常时的重试次数
 				.build();
