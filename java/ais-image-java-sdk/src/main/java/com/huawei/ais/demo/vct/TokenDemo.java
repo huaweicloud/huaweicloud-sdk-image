@@ -34,6 +34,7 @@ public class TokenDemo {
     private static int connectionTimeout = 10000; //连接目标url超时限制参数
     private static int connectionRequestTimeout = 5000;//连接池获取可用连接超时限制参数
     private static int socketTimeout = 20000;//获取服务器响应数据超时限制参数
+    private static boolean sslVerification = true;
 
     public static void main(String[] args)
             throws UnsupportedOperationException, IOException, InterruptedException {
@@ -66,7 +67,7 @@ public class TokenDemo {
                 new BasicHeader("Content-Type", "application/json")};
 
         HttpResponse response = HttpClientUtils.post(SUBMIT_JOB_URL, headers,
-                HttpJsonDataUtils.ObjectToHttpEntity(jobMetaInfo), connectionTimeout, connectionRequestTimeout, socketTimeout);
+                HttpJsonDataUtils.ObjectToHttpEntity(jobMetaInfo), sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
 
         if (!HttpJsonDataUtils.isOKResponded(response)) {
             System.out.println("Submit the job failed!");
@@ -87,7 +88,7 @@ public class TokenDemo {
         // 直到结果状态为任务已处理结束
         String url = String.format(GET_JOB_RESULT_URL_TEMPLATE, jobId);
         while (true) {
-            HttpResponse getResponse = HttpClientUtils.get(url, headers);
+            HttpResponse getResponse = HttpClientUtils.get(url, headers, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
             if (!HttpJsonDataUtils.isOKResponded(getResponse)) {
                 System.out.println("Get " + url);
                 System.out.println(HttpJsonDataUtils.responseToString(getResponse));
@@ -157,7 +158,7 @@ public class TokenDemo {
         Header[] headers = new Header[]{new BasicHeader("Content-Type", ContentType.APPLICATION_JSON.toString())};
         StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
 
-        HttpResponse response = HttpClientUtils.post(TOKEN_URL, headers, stringEntity, connectionTimeout,
+        HttpResponse response = HttpClientUtils.post(TOKEN_URL, headers, stringEntity, sslVerification, connectionTimeout,
                 connectionRequestTimeout, socketTimeout);
         if (!HttpJsonDataUtils.isOKResponded(response)) {
             System.out.println("Request body:" + HttpJsonDataUtils.prettify(requestBody));

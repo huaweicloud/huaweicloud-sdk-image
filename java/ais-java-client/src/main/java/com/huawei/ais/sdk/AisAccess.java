@@ -33,21 +33,23 @@ public class AisAccess extends AccessServiceImpl{
 	public int connectionRequestTimeout = HttpClientUtils.DEFAULT_CONNECTION_REQUEST_TIMEOUT;
 	public int socketTimeout = HttpClientUtils.DEFAULT_SOCKET_TIMEOUT;
 	public int retryTimes = HttpClientUtils.DEFAULT_RETRY_TIMES;
-	public int DEFAULT_MAX_REQUEST_TIME = 10000;
+	public boolean sslVerification = true;
 	
 	public AisAccess(AuthInfo authInfo) {
 		super(AisAccess.SERVICE_NAME, authInfo.getRegion(), authInfo.getAk(), authInfo.getSk());
 		this.authInfo = authInfo;
 	}
 	
-	public AisAccess(AuthInfo authInfo, int connectionTimeout, int connectionRequestTimeout, int socketTimeout, int retryTimes) {
+	public AisAccess(AuthInfo authInfo, Boolean sslVerification, int connectionTimeout, int connectionRequestTimeout, int socketTimeout, int retryTimes) {
 		super(AisAccess.SERVICE_NAME, authInfo.getRegion(), authInfo.getAk(), authInfo.getSk());
 		this.authInfo = authInfo;
-		
+		this.sslVerification = sslVerification;
+
 		this.connectionTimeout = connectionTimeout;
 		this.connectionRequestTimeout = connectionRequestTimeout;
 		this.socketTimeout = socketTimeout;
 		this.retryTimes = retryTimes;
+
 		
 	}
 	
@@ -62,25 +64,22 @@ public class AisAccess extends AccessServiceImpl{
 		return HttpClientUtils.acceptsUntrustedCertsHttpClient(false, null, this.connectionTimeout, this.connectionRequestTimeout, this.socketTimeout);
 	}
 
+	protected CloseableHttpClient getDefaultHttpClient()  throws NoSuchAlgorithmException, KeyManagementException {
+		return HttpClientUtils.getDefaultClient(this.connectionRequestTimeout, this.connectionTimeout, this.socketTimeout);
+	}
+
 	protected boolean useDefaultHttpClient()
 	{
-		return false;
+		return this.sslVerification;
 	}
 
 	public HttpResponse put(String requestUrl, String putBody) {
 
 		HttpResponse response = null;
 
-		Long startTime = System.currentTimeMillis();
 		int retries = 0;
 		while (retries <= retryTimes){
 			try {
-				Long requestTime = System.currentTimeMillis();
-				if ((requestTime - startTime) > DEFAULT_MAX_REQUEST_TIME){
-					logger.error("Failure to process request, time used {},The request time has exceeded the maximum limit", (requestTime - startTime));
-					break;
-				}
-
 				Map<String, String> header = new HashMap<String, String>();
 				header.put("Content-Type", ContentType.APPLICATION_JSON.toString());
 
@@ -112,19 +111,14 @@ public class AisAccess extends AccessServiceImpl{
 
 		HttpResponse response = null;
 
-		Long startTime = System.currentTimeMillis();
 		int retries = 0;
 		while (retries <= retryTimes){
 			try {
-				Long requestTime = System.currentTimeMillis();
-				if ((requestTime - startTime) > DEFAULT_MAX_REQUEST_TIME){
-					logger.error("Failure to process request, time used {},The request time has exceeded the maximum limit", (requestTime - startTime));
-					break;
-				}
-
 				URL url = new URL(generateWholeUrl(authInfo.getEndPoint(), requestUrl));
 				HttpMethodName httpMethod = HttpMethodName.GET;
-				response = access(url, httpMethod);
+				Map<String, String> header = new HashMap<String, String>();
+				header.put("Content-Type", ContentType.APPLICATION_JSON.toString());
+				response = access(url, header, httpMethod);
 				int statusCode = response.getStatusLine().getStatusCode();
 				if(!HttpClientUtils.needRetry(statusCode)){
 					break;
@@ -148,19 +142,15 @@ public class AisAccess extends AccessServiceImpl{
 
 		HttpResponse response = null;
 
-		Long startTime = System.currentTimeMillis();
 		int retries = 0;
 		while (retries <= retryTimes){
 			try {
-				Long requestTime = System.currentTimeMillis();
-				if ((requestTime - startTime) > DEFAULT_MAX_REQUEST_TIME){
-					logger.error("Failure to process request, time used {},The request time has exceeded the maximum limit", (requestTime - startTime));
-					break;
-				}
 
 				URL url = new URL(generateWholeUrl(authInfo.getEndPoint(), requestUrl));
 				HttpMethodName httpMethod = HttpMethodName.DELETE;
-				response = access(url, httpMethod);
+				Map<String, String> header = new HashMap<String, String>();
+				header.put("Content-Type", ContentType.APPLICATION_JSON.toString());
+				response = access(url, header, httpMethod);
 				int statusCode = response.getStatusLine().getStatusCode();
 				if(!HttpClientUtils.needRetry(statusCode)){
 					break;
@@ -199,12 +189,6 @@ public class AisAccess extends AccessServiceImpl{
 		int retries = 0;
 		while (retries <= retryTimes){
 			try {
-				Long requestTime = System.currentTimeMillis();
-				if ((requestTime - startTime) > DEFAULT_MAX_REQUEST_TIME){
-					logger.error("Failure to process request, time used {},the request time has exceeded the maximum limit", (requestTime - startTime));
-					break;
-				}
-
 				response = access(url, header, content, (long) postbody.getBytes().length, httpMethod);
 				int statusCode = response.getStatusLine().getStatusCode();
 				if(!HttpClientUtils.needRetry(statusCode)){
@@ -250,11 +234,6 @@ public class AisAccess extends AccessServiceImpl{
 		int retries = 0;
 		while (retries <= retryTimes){
 			try {
-				Long requestTime = System.currentTimeMillis();
-				if ((requestTime - startTime) > DEFAULT_MAX_REQUEST_TIME){
-					logger.error("Failure to process request, time used {},The request time has exceeded the maximum limit", (requestTime - startTime));
-					break;
-				}
 				response = accessEntity(url, header, entity, (long) entity.getContentLength(), httpMethod);
 				int statusCode = response.getStatusLine().getStatusCode();
 				if(!HttpClientUtils.needRetry(statusCode)){

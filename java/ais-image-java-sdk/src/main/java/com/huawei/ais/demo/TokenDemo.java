@@ -27,6 +27,7 @@ public class TokenDemo {
     public static int connectionTimeout = 10000; //连接目标url超时限制参数
     public static int connectionRequestTimeout = 5000;//连接池获取可用连接超时限制参数
     public static int socketTimeout = 20000;//获取服务器响应数据超时限制参数
+    private static boolean sslVerification = true;
 
     /**
      * 构造使用Token方式访问服务的请求Token对象
@@ -96,7 +97,7 @@ public class TokenDemo {
         StringEntity stringEntity = new StringEntity(requestBody,
                 "utf-8");
 
-        HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+        HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
         Header[] xst = response.getHeaders("X-Subject-Token");
         return xst[0].getValue();
 
@@ -115,7 +116,7 @@ public class TokenDemo {
         String requestBody = toBase64Str(formFile);
         StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
         try {
-            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
             System.out.println(response);
             String content = IOUtils.toString(response.getEntity().getContent());
             System.out.println(JSON.toJSONString(JSON.parse(content.toString()), SerializerFeature.PrettyFormat));
@@ -137,7 +138,7 @@ public class TokenDemo {
         String requestBody = toBase64Str(formFile);
         StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
         try {
-            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
             System.out.println(response);
             String content = IOUtils.toString(response.getEntity().getContent());
             System.out.println(JSON.toJSONString(JSON.parse(content.toString()), SerializerFeature.PrettyFormat));
@@ -160,7 +161,7 @@ public class TokenDemo {
         json.put("url", bgmUrl);
         StringEntity stringEntity = new StringEntity(json.toString(), "utf-8");
         try {
-            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
             System.out.println(response);
             String content = IOUtils.toString(response.getEntity().getContent());
             System.out.println(JSON.toJSONString(JSON.parse(content.toString()), SerializerFeature.PrettyFormat));
@@ -189,7 +190,7 @@ public class TokenDemo {
         StringEntity stringEntity = new StringEntity(json.toJSONString(), "utf-8");
 
         try {
-            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
             System.out.println(response);
             String content = IOUtils.toString(response.getEntity().getContent());
             System.out.println(JSON.toJSONString(JSON.parse(content.toString()), SerializerFeature.PrettyFormat));
@@ -216,7 +217,7 @@ public class TokenDemo {
         String requestBody = json.toJSONString();
         StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
         try {
-            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
 
             //验证服务调用返回的状态是否成功，如果为200, 为成功, 否则失败。
             ResponseProcessUtils.processResponseStatus(response);
@@ -247,7 +248,7 @@ public class TokenDemo {
         String requestBody = json.toJSONString();
         StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
         try {
-            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
 
             //验证服务调用返回的状态是否成功，如果为200, 为成功, 否则失败。
             ResponseProcessUtils.processResponseStatus(response);
@@ -278,7 +279,7 @@ public class TokenDemo {
         String requestBody = json.toJSONString();
         StringEntity stringEntity = new StringEntity(requestBody, "utf-8");
         try {
-            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, connectionTimeout, connectionRequestTimeout, socketTimeout);
+            HttpResponse response = HttpClientUtils.post(url, headers, stringEntity, sslVerification, connectionTimeout, connectionRequestTimeout, socketTimeout);
 
             //验证服务调用返回的状态是否成功，如果为200, 为成功, 否则失败。
             ResponseProcessUtils.processResponseStatus(response);

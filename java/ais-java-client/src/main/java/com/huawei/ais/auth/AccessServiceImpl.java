@@ -55,8 +55,8 @@ public class AccessServiceImpl extends AccessService {
 	{
 		return HttpClientUtils.acceptsUntrustedCertsHttpClient();
 	}
-	
-	private CloseableHttpClient getDefaultHttpClient() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
+
+	protected CloseableHttpClient getDefaultHttpClient() throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
 		SSLContext sslContext = SSLContexts.custom().loadTrustMaterial(null, new TrustSelfSignedStrategy()).useTLS().build();
 		SSLConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(sslContext,
 				new AllowAllHostnameVerifier());
