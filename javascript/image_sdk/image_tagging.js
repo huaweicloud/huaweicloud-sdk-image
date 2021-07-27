@@ -34,7 +34,8 @@ module.exports = {
 
             // 检测服务结果
             response.on("data", function (chunk) {
-                callback(chunk.toString());
+                var result = JSON.parse(chunk.toString());
+                callback(JSON.stringify(result));
             })
         });
 
@@ -76,7 +77,8 @@ module.exports = {
 
             // 返回图像内容检测服务结果信息
             response.on("data", function (chunk) {
-                callback(chunk.toString());
+                var result = JSON.parse(chunk.toString());
+                callback(JSON.stringify(result));
             })
         });
 
